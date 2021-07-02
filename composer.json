@@ -1,0 +1,54 @@
+{
+    "name": "davidgrzyb/deploy-laravel-on-vercel",
+    "description": "A package for generating files required for deployment to serverless Vercel.",
+    "keywords": [
+        "davidgrzyb",
+        "deploy-laravel-on-vercel"
+    ],
+    "homepage": "https://github.com/davidgrzyb/deploy-laravel-on-vercel",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "David Grzyb",
+            "email": "grzybdavid@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "DavidGrzyb\\DeployLaravelOnVercel\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DavidGrzyb\\DeployLaravelOnVercel\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DavidGrzyb\\DeployLaravelOnVercel\\DeployLaravelOnVercelServiceProvider"
+            ],
+            "aliases": {
+                "DeployLaravelOnVercel": "DavidGrzyb\\DeployLaravelOnVercel\\DeployLaravelOnVercelFacade"
+            }
+        }
+    }
+}
